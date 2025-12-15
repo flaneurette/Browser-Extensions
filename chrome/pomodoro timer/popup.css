@@ -1,0 +1,54 @@
+body {
+	font-family: Arial, sans-serif;
+	text-align: center;
+	width: 320px;
+	padding: 10px;
+	color: #ccc;
+}
+
+#timer-container {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	margin: auto;
+}
+#svg-wrapper {
+	width: 300px;
+	height: 300px;
+	margin: auto;
+}
+
+#svg-wrapper svg {
+	width: 100%;
+}
+#controls {
+	margin: 15px;
+}
+
+#duration {
+	width:35px;
+	display:block;
+	margin: 0 auto;
+	margin-top:35px;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+#break {
+	width:35px;
+	display:block;
+	margin: 0 auto;
+	margin-top:15px;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+button {
+	border: 1px solid darkred;
+	background-color: darkred;
+	color: #fff;
+	font-weight:bold;
+	padding: 10px;
+	border-radius: 20px;
+	margin:15px;
+}
+

@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "No News",
+  "version": "2.3",
+  "description": "Blocks any news websites you specify",
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "No News",
+    "default_icon": {
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+ "browser_specific_settings": {
+    "gecko": {
+      "id": "no-news@flaneurette.com",
+      "strict_min_version": "145.0",
+	  "data_collection_permissions": {
+      "required": ["none"]
+     }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+	"manifest_version": 3,
+	"name": "Moon Phase Tracker",
+	"version": "1.0",
+	"description": "Displays the current moon phase, age, and illumination.",
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "moon128.png",
+			"48": "moon128.png",
+			"128": "moon128.png"
+		}
+	},
+	"permissions": []
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Pomodoro Timer</title>
+	<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+	<div id="timer-container">
+	<a href="about.html" target="_blank">About</a>
+	<div id="svg-wrapper">
+		<svg viewBox="0 0 100 100">
+			<circle cx="50" cy="50" r="45" stroke="#ddd" stroke-width="4" fill="none"/>
+			<circle id="progress" cx="50" cy="50" r="45" stroke="darkred" stroke-width="4" fill="none"
+				stroke-dasharray="282.743" stroke-dashoffset="0" transform="rotate(-90 50 50)" />
+		</svg>
+	</div>
+	<div id="overlay"></div>
+	</div>
+<input id="duration" type="number" value="25" min="1"> <span>timer minutes</span>
+<input id="break" type="number" value="5" min="1"> <span>minute break</span>
+	<div id="controls">
+		<button id="start">Start</button>
+		<button id="stop">Stop</button>
+	</div>
+	<audio id="bell" src="bell.mp3"></audio>
+	<script src="popup.js"></script>
+</body>
+</html>

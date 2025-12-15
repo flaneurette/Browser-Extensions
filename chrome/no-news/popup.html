@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>No News</title>
+<style>
+	body { font-family: sans-serif; padding: 10px; width: 250px; }
+	input, button { margin: 5px 0; padding: 5px; width: 100%; box-sizing: border-box; }
+	ul { list-style: none; padding: 0; max-height: 150px; overflow-y: auto; }
+	li { display: flex; justify-content: space-between; align-items: center; margin: 5px 0; }
+	li button { width: 70px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+	<h3>Blocked News Sites</h3>
+	<input id="siteInput" type="text" placeholder="example.com">
+	<button id="addBtn">Add</button>
+	<ul id="siteList"></ul>
+	<script src="popup.js"></script>
+</body>
+</html>

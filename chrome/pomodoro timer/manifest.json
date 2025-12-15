@@ -1,0 +1,25 @@
+{
+	"manifest_version": 3,
+	"name": "Pomodoro Timer",
+	"description": "A Pomodoro timer with break cycles.",
+	"version": "1.1",
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "tomato.png",
+			"48": "tomato.png",
+			"128": "tomato.png"
+		}
+	},
+	"background": {
+		"service_worker": "background.js"
+	},
+	"web_accessible_resources": [
+		{
+			"resources": ["bell.mp3", "ring.html", "ring.js"],
+			"matches": ["<all_urls>"]
+		}
+	],
+	"permissions": ["storage"],
+	"host_permissions": []
+}

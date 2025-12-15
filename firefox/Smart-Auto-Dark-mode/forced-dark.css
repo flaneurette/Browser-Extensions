@@ -1,0 +1,15 @@
+/* Generic forced dark mode for sites that ignore prefers-color-scheme */
+html, body, #__next, .app-wrapper {
+    background-color: #0b0b0b !important;
+    color: #e0e0e0 !important;
+}
+
+* {
+    background-color: inherit !important;
+    color: inherit !important;
+    border-color: #333 !important;
+}
+
+a {
+    color: #80c0ff !important;
+}

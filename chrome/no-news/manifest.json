@@ -1,0 +1,26 @@
+{
+	"manifest_version": 3,
+	"name": "No News",
+	"version": "2.1",
+	"description": "Blocks any news websites you specify",
+	"permissions": ["declarativeNetRequest", "declarativeNetRequestWithHostAccess", "storage"],
+	"host_permissions": ["*://*/*"],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"options_page": "options.html",
+	"action": {
+		"default_popup": "popup.html",
+		"default_title": "No News",
+		"default_icon": {
+			"16": "icon.png",
+			"48": "icon.png",
+			"128": "icon.png"
+		}
+	},
+	"icons": {
+		"16": "icon.png",
+		"48": "icon.png",
+		"128": "icon.png"
+	}
+}
