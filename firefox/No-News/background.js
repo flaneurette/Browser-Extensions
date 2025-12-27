@@ -20,8 +20,6 @@ const starterSites = [
   "haaretz.com", "jpost.com", "timesofisrael.com", "ynetnews.com", "al-monitor.com"
 ];
 
-
-
 let currentSites = starterSites.map(s => s.toLowerCase());
 
 // Helper
@@ -45,23 +43,40 @@ function blockRequest(details) {
 }
 
 // Register listener
-if (!chrome.webRequest.onBeforeRequest.hasListener(blockRequest)) {
-    chrome.webRequest.onBeforeRequest.addListener(
-        blockRequest,
-        { urls: ["<all_urls>"], types: ["main_frame"] },
-        ["blocking"]
-    );
+browser.webRequest.onBeforeRequest.addListener(
+    blockRequest,
+    { urls: ["<all_urls>"], types: ["main_frame"] },
+    ["blocking"]
+);
+
+// Load and merge sites from storage on startup
+async function loadSites() {
+    const result = await browser.storage.local.get("blockedSites");
+    const storedSites = result.blockedSites || [];
+    
+    // Merge: starter sites + user-added sites (remove duplicates)
+    const mergedSites = [...new Set([...starterSites, ...storedSites])];
+    currentSites = mergedSites.map(s => s.toLowerCase());
+    
+    // Save merged list back to storage
+    await browser.storage.local.set({ blockedSites: mergedSites });
 }
 
-// Initialize storage once on startup
-chrome.runtime.onInstalled.addListener(async () => {
-    await chrome.storage.local.set({ blockedSites: starterSites });
-    currentSites = starterSites.map(s => s.toLowerCase());
-});
+// Initialize on install/update
+browser.runtime.onInstalled.addListener(loadSites);
+
+// Load sites when browser starts
+browser.runtime.onStartup.addListener(loadSites);
+
+// Also load immediately when script runs
+loadSites();
 
 // Update currentSites when storage changes
-chrome.storage.onChanged.addListener((changes, area) => {
+browser.storage.onChanged.addListener((changes, area) => {
     if (area === "local" && changes.blockedSites) {
-        currentSites = changes.blockedSites.newValue.map(s => s.toLowerCase());
+        const storedSites = changes.blockedSites.newValue || [];
+        // Merge again to ensure defaults are always included
+        const mergedSites = [...new Set([...starterSites, ...storedSites])];
+        currentSites = mergedSites.map(s => s.toLowerCase());
     }
 });
